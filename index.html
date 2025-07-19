@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Bites - Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Delicious Bites</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Delicious Bites</h1>
+            <p>Experience the finest cuisine with fresh ingredients and exceptional flavors that will delight your taste buds</p>
+            <a href="#menu" class="cta-button">Explore Menu</a>
+        </div>
+    </section>
+
+    <!-- Popular Items Section -->
+    <section class="popular-items" id="menu">
+        <div class="container">
+            <h2 class="section-title">Popular Items</h2>
+            <div class="carousel-container">
+                <button class="carousel-arrow prev" onclick="moveCarousel(-1)">❮</button>
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Burger">
+                        <div class="item-info">
+                            <h3>Classic Beef Burger</h3>
+                            <p>Juicy beef patty with lettuce, tomato, and special sauce on a brioche bun</p>
+                            <div class="price">$12.99</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pizza">
+                        <div class="item-info">
+                            <h3>Margherita Pizza</h3>
+                            <p>Classic pizza with tomato sauce, mozzarella, and fresh basil</p>
+                            <div class="price">$14.99</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pasta">
+                        <div class="item-info">
+                            <h3>Spaghetti Carbonara</h3>
+                            <p>Creamy pasta with pancetta, eggs, and parmesan cheese</p>
+                            <div class="price">$13.99</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salad">
+                        <div class="item-info">
+                            <h3>Greek Salad</h3>
+                            <p>Fresh vegetables with feta cheese and olive oil dressing</p>
+                            <div class="price">$9.99</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dessert">
+                        <div class="item-info">
+                            <h3>Chocolate Cake</h3>
+                            <p>Rich chocolate cake with creamy frosting and berries</p>
+                            <div class="price">$7.99</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-arrow next" onclick="moveCarousel(1)">❯</button>
+            </div>
+            <button class="request-dish-btn" onclick="openModal()">Request Dish</button>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Our Kitchen in Action</h2>
+            <div class="video-container">
+                <div class="video-player" onclick="toggleVideo()">
+                    <video class="video-element" id="mainVideo" poster="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80">
+                        <source src="https://media.istockphoto.com/id/2069419578/video/super-slow-motion-of-flying-asian-wok-noodles-with-prans-and-vegetable.mp4?s=mp4-640x640-is&k=20&c=9eZjm_j9eSSczQvscdnZnDRguOvYdT1WitmUhSEJ9xU=" type="video/mp4">
+                        
+                    </video>
+                    <button class="play-button" id="playButton">▶</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; Chandan Kumar Sahu</p>
+        </div>
+    </footer>
+
+    <!-- Request Dish Modal -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Request a Dish</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="requestForm">
+                    <div class="form-group">
+                        <label for="customerName">Your Name *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Email Address *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number</label>
+                        <input type="tel" id="customerPhone" name="customerPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="dishType">Dish Type</label>
+                        <select id="dishType" name="dishType">
+                            <option value="">Select a category</option>
+                            <option value="appetizer">Appetizer</option>
+                            <option value="main">Main Course</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="beverage">Beverage</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dishDescription">Dish Description *</label>
+                        <textarea id="dishDescription" name="dishDescription" placeholder="Please describe the dish you would like to request..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests or Dietary Restrictions</label>
+                        <textarea id="specialRequests" name="specialRequests" placeholder="Any allergies, dietary preferences, or special instructions..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-btn cancel" onclick="closeModal()">Cancel</button>
+                <button type="submit" class="modal-btn submit" onclick="submitRequest()">Submit Request</button>
+            </div>
+        </div>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
